@@ -1,0 +1,25 @@
+\begin {minipage}{\linewidth}
+\frametitle{I also have a factor of two error in $\phi|_{\mbox{\scriptsize inner}} - \phi|_{\mbox{\scriptsize outer}}$}
+\tiny
+\begin{verbatim}
+// This comes from Jackson p. 581-2, a little geometry, and a FUDGE
+// FACTOR of two in the denominator.  Why is that factor of two correct?
+// (It's not confusion about radius vs. diameter in the definition of
+// curvature.)
+
+double phiVsRSlope = -3.00e-3 * chargeHypothesis * magneticField->inTesla().z() / pT / 2.;
+\end{verbatim}
+\end{minipage}
+
+\vfill
+The $\phi|_{\mbox{\scriptsize inner}} - \phi|_{\mbox{\scriptsize
+outer}}$ I calculate is 2$\times$ larger than the simulated track.
+Could it be that
+
+\vspace{0.25 cm}
+\newcounter{Lcount}
+\begin{list}{\alph{Lcount}) }
+{\usecounter{Lcount}}
+\item electron-gun $p_T$ is half of the value requested, and
+\item reco::Track reports $p_T$ as twice the value fitted?
+\end{list}
